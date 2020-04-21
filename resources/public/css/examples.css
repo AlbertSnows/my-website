@@ -1,0 +1,77 @@
+/* old stuff */
+#sidebar-ul {
+  /* height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 2%; */
+}
+
+#sidebar-ul>li>a {
+  padding: 1em 1em 1em 0.1em;
+  text-decoration: none;
+  font-size: 2em;
+  color: white;
+  display: block;
+  font-family: MINIMAL;
+  text-align: center;
+}
+
+#sidebar-ul>li>a:hover {
+  color: gray;
+}
+
+.pushable {
+  transition: margin-left .5s;
+}
+
+#toggle-sidebar {
+  font-size: 2em;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 0.3em 0.3em;
+  border: none;
+}
+
+
+#toggle-sidebar-test {
+  font-size: 2em;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 0.3em 0.3em;
+  border: none;
+}
+
+/*
+#sidebar-toggle-button:hover {
+    position: relative;
+    transition: margin .25s ease-out;
+    right: 0.1em;
+}
+*/
+
+/*
+#sidebar-toggle-button:hover + #sidebar-wrapper {
+    position: relative;
+    transition: margin .25s ease-out;
+    right: 1em;
+}
+
+/* only apply hover styling when the div does not have the class 'no-hover' */
+/*#sidebar-toggle-button:not(.no-hover):hover {
+    position: relative;
+    transition: margin .25s ease-out;
+    right: 1em;
+}
+
+#sidebar-toggle-button:not(.no-hover):hover + #sidebar-wrapper{
+    position: relative;
+    transition: margin .25s ease-out;
+    right: 1em;
+}*/

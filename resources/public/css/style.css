@@ -1,3 +1,357 @@
-h1 {
-  text-decoration: underline;
+/* FULL PAGE */
+* { padding: 0; margin: 0; }
+
+html {
+  height:100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+body {
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position:center center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+body > * {
+  flex-shrink: 0;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+
+#page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* BOXES */
+@font-face {
+  font-family: MINIMAL;
+  src: url(../fonts/minimal/Minimal.ttf);
+}
+
+#outer-text {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  font-family: MINIMAL;
+  margin: 0 auto;
+  padding: 0 auto;
+  vertical-align: top;
+}
+
+#outer-box {
+  width: 70%;
+  background-color: black;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0 auto;
+  margin-top: 10%;
+  height: max-content;
+  border-radius: 3%;
+}
+
+#inner-box {
+  font-size: 2em;
+  color: white;
+  text-align: center;
+  font-family: MINIMAL;
+  margin: 0 auto;
+  padding: 0 auto;
+  vertical-align: top;
+}
+
+#example {
+  font-size: 6em;
+  color: white;
+  font-family: MINIMAL;
+}
+
+.class-example {
+  font-size: 4em;
+  color: white;
+  font-family: MINIMAL;
+}
+
+/* sidebar */
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-left: 0;
+}
+
+#sidebar-wrapper {
+
+}
+
+#sidebar-entries {
+    height: 100%;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 2%;
+    font-family: MINIMAL;
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+#sidebar-entries>li>a {
+  padding: 1em 1em 0.1em 1em;
+  text-decoration: none;
+  font-size: 2em;
+  color: white;
+  display: block;
+  font-family: MINIMAL;
+  text-align: center;
+}
+
+#sidebar-toggle-button {
+    font-size: 2em;
+    color: black;
+    transform: scale(5, 2.6);
+}
+
+#email>a>img {
+    height: 5em;
+    width: 5em;
+}
+
+#github>a>img {
+    height: 5em;
+    width: 5em;
+}
+
+#toggle-wrapper {
+    position: relative;
+    margin-top: 4em;
+    margin-right: 2em;
+    max-height: 20%;
+    cursor: pointer;
+}
+
+@media (min-width: 1em) {
+  #wrapper.toggled #toggle-wrapper:hover #sidebar-toggle-button{
+    position: relative;
+    transition: margin .35s ease-out;
+    left: 0.3em;
+  }
+
+  #wrapper:not(.toggled) #toggle-wrapper:hover #sidebar-toggle-button{
+    position: relative;
+    transition: margin .35s ease-out;
+    right: 0.5em;
+  }
+
+  #wrapper:not(.toggled) #sidebar-wrapper {
+    margin-right: -10em;
+  }
+  #wrapper:not(.toggled) #toggle-wrapper:hover + #sidebar-wrapper {
+    position: relative;
+    transition: margin .35s ease-out;
+    right: 1.5em;
+  }
+
+  #wrapper.toggled #toggle-wrapper:hover + #sidebar-wrapper {
+    position: relative;
+    transition: margin .35s ease-out;
+    left: 0.7em;
+  }
+}
+
+.align-vertical {
+  flex-direction: column;
+}
+
+.align-horizontal {
+    flex-direction: row;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.flex {
+    display: flex;
+}
+
+/* everything else */
+.image-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.image-container>a>img{
+
+}
+
+.item {
+    padding: 1em;
+}
+
+#contact-items {
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.box {
+  border: 1px;
+  border-color: white;
+  border-style: solid;
+  border-radius: 1%;
+  position: relative;
+  width: inherit;
+}
+
+.date {
+    position: absolute;
+    top: 0%;
+    right: -2%;
+    font-size: 0.7em;
+    font-style: italic;
+    width: 20%;
+}
+
+.general-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#end-node {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-end;
+  width: 50%;
+}
+
+#end-node>img{
+
+}
+
+.right-side {
+    width: 30%;
+    display: flex;
+    height: 30%;
+    overflow: visible;
+    flex-direction: column;
+}
+
+.left-side {
+    width: 30%;
+    overflow: visible;
+
+}
+
+#tuber {
+  width: 60%;
+  height: auto;
+
+}
+
+#thonker {
+    height: auto;
+    width: 85%;
+    margin-left: 3em;
+    margin-bottom: 1em;
+}
+
+#thonker>a {
+    height: inherit;
+    width: inherit;
+}
+
+#thonker>a>img {
+    height: inherit;
+    width: inherit;
+}}
+
+#table-role-video {
+    width: 100%;
+    margin-left: 1em;
+    margin-bottom: 2em;
+}
+
+#table-role-video>a>img {
+    height: 100%;
+    width: 100%;
+}
+
+
+.middle {
+    margin: 1em;
+}
+
+.small-text {
+    font-size: 0.5em;
+}
+
+#sudo-apt-get-gf {
+      width: 60%;
+      height: auto;
+      margin-right: 1em;
+      margin-top: 1em;
+}
+
+.image-container>a {
+
+}
+
+.href-item-container>a>img {
+    height: 3em;
+    width: 3em;
+}
+
+.brief-border {
+    padding: 0.5em;
+}
+
+.description {
+    font-size: 0.7em;
+}
+
+.description-container {
+    display: flex;
+    flex-direction: column;
+    padding-right: 0.5em;
+}
+
+.outer-bottom-padding {
+    padding-bottom: 1em;
+}
+
+.href-image-container>a>img {
+    height: 100%;
+    width: 100%
+}
+
+.padding-bottom {
+    padding-bottom: 1em;
+}
+
+.enlarge-text {
+    font-size: 1.1em;
+}
+
+.padding-right {
+    padding-right: 1em;
 }

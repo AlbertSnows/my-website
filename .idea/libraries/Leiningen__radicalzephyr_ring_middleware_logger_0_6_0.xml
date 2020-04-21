@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: radicalzephyr/ring.middleware.logger:0.6.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/radicalzephyr/ring.middleware.logger/0.6.0/ring.middleware.logger-0.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

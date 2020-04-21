@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: org.danielsz/lang-utils:0.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/danielsz/lang-utils/0.1.0-SNAPSHOT/lang-utils-0.1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

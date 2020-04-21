@@ -3,7 +3,7 @@
             [re-frame.core :as re-frame]
             [my-website.events]
             [my-website.subs]
-            [my-website.views :as views]
+            [my-website.entrance :as views]
             [my-website.config :as config]))
 
 (enable-console-print!)
@@ -15,8 +15,9 @@
 
 (defn mount-root []
   (re-frame/clear-subscription-cache!)
-  (reagent/render [views/main-panel]
-                  (.getElementById js/document "app")))
+  (reagent/render
+    [views/main-panel]
+    (.getElementById js/document "app")))
 
 (defn render []
   (re-frame/dispatch-sync [:initialize-db])

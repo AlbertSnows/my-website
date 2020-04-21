@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: clj-commons/cljss:1.6.4">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/clj-commons/cljss/1.6.4/cljss-1.6.4.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
