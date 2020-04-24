@@ -85,12 +85,7 @@ body > * {
 }
 
 /* sidebar */
-#wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-left: 0;
-}
+
 
 #sidebar-wrapper {
 
@@ -121,11 +116,7 @@ body > * {
   text-align: center;
 }
 
-#sidebar-toggle-button {
-    font-size: 2em;
-    color: black;
-    transform: scale(5, 2.6);
-}
+
 
 #email>a>img {
     height: 5em;
@@ -137,6 +128,13 @@ body > * {
     width: 5em;
 }
 
+#sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-left: 0;
+}
+
 #toggle-wrapper {
     position: relative;
     margin-top: 4em;
@@ -145,34 +143,41 @@ body > * {
     cursor: pointer;
 }
 
+#sidebar-toggle-button {
+    font-size: 2em;
+    color: black;
+    transform: scale(5, 2.6);
+}
+
 @media (min-width: 1em) {
-  #wrapper.toggled #toggle-wrapper:hover #sidebar-toggle-button{
+  #sidebar.toggled #toggle-wrapper:hover #sidebar-toggle-button{
     position: relative;
     transition: margin .35s ease-out;
     left: 0.3em;
   }
 
-  #wrapper:not(.toggled) #toggle-wrapper:hover #sidebar-toggle-button{
+  #sidebar:not(.toggled) #toggle-wrapper:hover #sidebar-toggle-button{
     position: relative;
     transition: margin .35s ease-out;
     right: 0.5em;
   }
 
-  #wrapper:not(.toggled) #sidebar-wrapper {
+  #sidebar:not(.toggled) #sidebar-wrapper {
     margin-right: -10em;
   }
-  #wrapper:not(.toggled) #toggle-wrapper:hover + #sidebar-wrapper {
+  #sidebar:not(.toggled) #toggle-wrapper:hover + #sidebar-wrapper {
     position: relative;
     transition: margin .35s ease-out;
     right: 1.5em;
   }
 
-  #wrapper.toggled #toggle-wrapper:hover + #sidebar-wrapper {
+  #sidebar.toggled #toggle-wrapper:hover + #sidebar-wrapper {
     position: relative;
     transition: margin .35s ease-out;
     left: 0.7em;
   }
 }
+
 
 .align-vertical {
   flex-direction: column;

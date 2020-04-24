@@ -77,7 +77,7 @@
            :output-to "resources/public/js/compiled/my_website.js"
            :output-dir "target"
            :source-map-timestamp true
-           :optimizations :advanced
+           :optimizations :simple
            :closure-defines {goog.DEBUG false}
            :pretty-print false}}]}
 

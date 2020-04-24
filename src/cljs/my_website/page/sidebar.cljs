@@ -23,24 +23,25 @@
             :href
             "#"} "Projects"]]])
 
-(defn menu-toggle-render []
-  [:div#sidebar-toggle-button "["])
+(defn toggle-class [atom key old-class new-class]
+  (if (= (@atom key) old-class)
+    (swap! atom assoc key new-class)
+    (swap! atom assoc key old-class)))
 
+(defn menu-toggle [state]
+    [:div
+     {:id "sidebar-toggle-button"
+      :on-click #(toggle-class state :state "closed" "toggled")}
+     "["])
 
-(defn menu-toggle-did-mount [this]
-  (.click (js/$ (r/dom-node this))
-          (fn [e]
-            (.preventDefault e)
-            ;#wrapper will be the id of a div in our home component
-            (.toggleClass (js/$ "#wrapper") "toggled"))))
-
-(defn menu-toggle []
-  (r/create-class
-    { :reagent-render menu-toggle-render
-      :component-did-mount menu-toggle-did-mount}))
+(def sidebar-state (r/atom {:state "closed"}))
 
 (defn build-sidebar []
-  [:div#wrapper
-   [:div#toggle-wrapper
-    [menu-toggle]]
-   [sidebar]])
+    [:div
+     {:id "sidebar"
+      :class (@sidebar-state :state)}
+     [:div#toggle-wrapper
+      (menu-toggle sidebar-state)]
+     [sidebar]])
+
+
