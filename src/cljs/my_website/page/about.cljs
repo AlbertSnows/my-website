@@ -1,54 +1,89 @@
 (ns my-website.page.about
   (:require [reagent.core :as r]))
 
+(def image-dir "../images/")
+(def classes "href-item-container")
 (def about-page-header [:div {:id "about-header"} "About me"])
 
-(defn new-class-container [name contents]
-  [:div {:class name} contents])
-(defn new-id-container [name contents]
-  [:div {:class name} contents])
+(defn date [time]
+  [:div {:id time :class "about-header"}
+   [:p {:class "date"} time]])
 
-(defn left-side [contents] (new-class-container "left-side" (seq contents)))
-(defn right-side [contents] (new-class-container "right-side" (seq contents)))
-(defn time-line [contents] (new-class-container "node" (seq contents)))
+(defn timeline-container [id class header body]
+  [:div {:id id :class (str "box timeline-container" class)} header body])
 
-(defn general-container [left-contents node right-contents]
-  [:div {:class "general-container"}
-   (left-side left-contents)
-   (time-line node)
-   (right-side right-contents)
-   ])
+(defn timeline-body [left middle right]
+  [:div.about-body left middle right])
 
-(def about-page-head
-  [:div {:id "25_01_2020" :class "box"}
-   [:p {:class "date"} "25/01/2020"]
-   (general-container
-     [:div]
-     [:div]
-     [:div]
-     )])
-;[:div {:id "paycom" :class "image-container"}
-     ; [:img {:src "../images/WITH_OUR_THREE_POWERS_COMBINED.png" :alt "I play games I KNOW I'M SORRY"}]]
-     ;[:div {:id "ok-city" :class "image-container"}
-     ; [:img {:src "../images/the-thinker.png" :alt "But really, what even IS a rock anyways!?!?!?!"}]]
-     ;[[:id "end-node" :img {:src "../images/end-node.png" :alt "End of the road, cowboy"}]]
-     ;[[:div {:id "KSU" :class "image-container"}
-     ;  [:img {:src "../images/tubes.png" :alt "Youtube is my Netflix, sadly"}]]]
+(defn div-container [id class contents]
+  [:div {:id id :class class} contents])
+
+(defn left-side [id contents]
+  (div-container id "left-side" contents))
+
+(defn right-side [id contents]
+  (div-container id "right-side" contents))
+
+(defn middle [id contents]
+  (div-container id "middle" contents))
+
+(defn image-container [id class src alt]
+  [:img {:id id :class class :src (str image-dir src) :alt alt}])
+
+(defn image-href-container [id class href image-container]
+  [:div {:id id :class class}
+   [:a {:href href :target "__blank" :rel "noopener noreferrer"}
+    image-container]])
 
 (def about-page-body
-  [:div {:id "about-body"}
-   about-page-head])
-
-; how to get a sample swapping thing working
-;(def atum (r/atom [:div "a"]))
-;(defn o-o-c [a] (if (= a [:div "a"]) [:div "e"] [:div "a"]))
-;(def swapper1 #(swap! atum o-o-c))
-;; https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav_push
-;(defn sidebar-button []
-;  [:div {:id "toggle-sidebar-test"} @atum
-;   [:button {:type "button"
-;             :id "toggle-sidebar"
-;             :on-click swapper1
-;             } "my-website"]
-;   ]
-;  )j
+  (seq
+    {:end-node-key
+     (timeline-container
+       "end-node" ""
+       (date "2020")
+       (timeline-body
+         (left-side ""
+                    (image-href-container
+                      "my-website-link"
+                      classes
+                      "https://github.com/AlbertSnows/MyWebsite"
+                      (image-container
+                        "this-website-img"
+                        "placeholder"
+                        (str image-dir "this_website.PNG")
+                        "This Website")))
+         (middle ""
+                 (image-container
+                   "end-node-raw"
+                   "raw-img"
+                   "end-node.PNG"
+                   "end of the road, cowboy"))
+         (right-side "" [:div "right"])))
+     }))
+     ;^{:key "segment-2-key"}
+     ;(timeline-container
+     ;  "segment-2" ""
+     ;  (date "2019")
+     ;  (timeline-body
+     ;    (left-side ""
+     ;      [:div "left"])
+     ;    (middle ""
+     ;      (image-container
+     ;        "segment-2-raw"
+     ;        "segment"
+     ;        "middle-node-ltr.PNG"
+     ;        "almost end of the road, cowboy"))
+     ;    (right-side "" [:div "right"])))
+     ;^{:key "segment-3-key"}
+     ;(timeline-container
+     ;  "segment-3" ""
+     ;  (date "2018")
+     ;  (timeline-body
+     ;    (left-side "" [:div "left"])
+     ;    (middle ""
+     ;      (image-container
+     ;        "segment-2-raw"
+     ;        "segment"
+     ;        "middle-node-rtl.PNG"
+     ;        "beginning of the road, cowboy"))
+     ;    (right-side "" [:div "right"])))

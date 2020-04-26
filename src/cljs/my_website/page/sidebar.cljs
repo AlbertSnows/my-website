@@ -32,7 +32,7 @@
     [:div
      {:id "sidebar-toggle-button"
       :on-click #(toggle-class state :state "closed" "toggled")}
-     "["])
+     [:p "["]])
 
 (def sidebar-state (r/atom {:state "closed"}))
 

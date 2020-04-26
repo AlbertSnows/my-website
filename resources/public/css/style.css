@@ -60,6 +60,7 @@ body > * {
   margin-top: 10%;
   height: max-content;
   border-radius: 3%;
+  min-width: 1em;
 }
 
 #inner-box {
@@ -86,12 +87,13 @@ body > * {
 
 /* sidebar */
 
-
-#sidebar-wrapper {
-
+sidebar-wrapper {
+    height: 100%;
+    position: fixed;
+    padding-left: 10em;
 }
 
-#sidebar-entries {
+sidebar-entries {
     height: 100%;
     z-index: 1;
     position: relative;
@@ -106,6 +108,84 @@ body > * {
     list-style-type: none;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+#sidebar {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 3em;
+    margin-left: 3em;
+    transition: 0.5s;
+}
+
+#sidebar.toggled{
+    width: 8.5em;
+    margin-left: 4em;
+}
+
+#toggle-wrapper {
+    position: fixed;
+    width: 9%;
+    height: 13%;
+    cursor: pointer;
+    transition: 0.5s;
+    margin-top: 4em;
+    padding-right: 1em;
+}
+.p {
+    margin: 0;
+}
+
+#sidebar-toggle-button {
+    font-size: 2em;
+    color: black;
+    width: inherit;
+    height: inherit;
+
+    transform: scale(5, 2.6);
+    vertical-align: center;
+    text-align: center;
+}
+
+#sidebar-toggle-button>p {
+    margin: 0;
+}
+
+.toggled>#toggle-wrapper {
+    margin-right: 8.4em;
+}
+
+#sidebar-wrapper {
+  height: 100%;
+  width: 0em;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.toggled>#sidebar-wrapper {
+    width: 8.5em;
+}
+
+#sidebar-entries {
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
 #sidebar-entries>li>a {
   padding: 1em 1em 0.1em 1em;
   text-decoration: none;
@@ -116,62 +196,64 @@ body > * {
   text-align: center;
 }
 
-
+#email {
+    padding: 0;
+}
 
 #email>a>img {
-    height: 5em;
-    width: 5em;
+    height: 1em;;
+    width: 1em;
+    min-width: 1em;
+}
+
+#github {
+    padding: 0;
 }
 
 #github>a>img {
-    height: 5em;
-    width: 5em;
+    height: 1em;
+    width: 1em;
+    min-width: 1em;
 }
 
-#sidebar {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-left: 0;
+#sidebar:not(.toggled) #toggle-wrapper:hover{
+    margin-right: 1.1em;
 }
 
-#toggle-wrapper {
-    position: relative;
-    margin-top: 4em;
-    margin-right: 2em;
-    max-height: 20%;
-    cursor: pointer;
+#sidebar:not(.toggled) #toggle-wrapper:hover + #sidebar-wrapper {
+    width: 0.8em;
 }
 
-#sidebar-toggle-button {
-    font-size: 2em;
-    color: black;
-    transform: scale(5, 2.6);
+#sidebar.toggled #toggle-wrapper:hover{
+    margin-right: 8em;
 }
 
-@media (min-width: 1em) {
-  #sidebar.toggled #toggle-wrapper:hover #sidebar-toggle-button{
+#sidebar.toggled #toggle-wrapper:hover + #sidebar-wrapper {
+    width: 8em;
+}
+
+
+media (min-width: 1em) {
+  sidebar.toggled #toggle-wrapper:hover #toggle-wrapper{
     position: relative;
     transition: margin .35s ease-out;
     left: 0.3em;
   }
 
-  #sidebar:not(.toggled) #toggle-wrapper:hover #sidebar-toggle-button{
-    position: relative;
-    transition: margin .35s ease-out;
-    right: 0.5em;
+  sidebar:not(.toggled) #toggle-wrapper:hover #toggle-wrapper{
+    margin-right: 5em;
   }
 
-  #sidebar:not(.toggled) #sidebar-wrapper {
+  sidebar:not(.toggled) #sidebar-wrapper {
     margin-right: -10em;
   }
-  #sidebar:not(.toggled) #toggle-wrapper:hover + #sidebar-wrapper {
+  sidebar:not(.toggled) #toggle-wrapper:hover + #sidebar-wrapper {
     position: relative;
     transition: margin .35s ease-out;
     right: 1.5em;
   }
 
-  #sidebar.toggled #toggle-wrapper:hover + #sidebar-wrapper {
+  sidebar.toggled #toggle-wrapper:hover + #sidebar-wrapper {
     position: relative;
     transition: margin .35s ease-out;
     left: 0.7em;
@@ -211,7 +293,7 @@ body > * {
 
 #contact-items {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     padding: 1em;
     margin-left: 1em;
     margin-right: 1em;
@@ -224,6 +306,20 @@ body > * {
   border-radius: 1%;
   position: relative;
   width: inherit;
+  overflow-wrap: anywhere;
+  word-wrap: anywhere;
+  hyphens: auto;
+}
+
+.raw-img {
+    height: 50%;
+    width: 50%;
+    align-self: center;
+}
+
+.about-body {
+    display: flex;
+    flex-direction: row;
 }
 
 .date {
@@ -242,79 +338,185 @@ body > * {
     align-items: center;
 }
 
-#end-node {
-  display: flex;
-  flex-direction: row;
-  align-self: flex-end;
-  width: 50%;
+#end-node-raw {
+    align-self: flex-end;
+    height: 80%;
 }
 
-#end-node>img{
-
+.segment {
+    height: 100%;
+    width: 105%;
+    align-self: center;
 }
 
-.right-side {
+#this-website-img {
+    height: 10%;
+    width: 10%;
+}
+
+#my-website-link {
+}
+
+.timeline-container {
+    display: flex;
+}
+
+
+right-side {
     width: 30%;
     display: flex;
     height: 30%;
     overflow: visible;
     flex-direction: column;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
-.left-side {
+left-side {
     width: 30%;
     overflow: visible;
-
 }
 
-#tuber {
+sudo-apt-get-gf {
+      padding-top: 3.8em;
+      align-self: flex-start;
+}
+
+tuber {
   width: 60%;
   height: auto;
-
 }
 
-#thonker {
+thonker {
     height: auto;
     width: 85%;
-    margin-left: 3em;
+    margin-left: 2em;
     margin-bottom: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
 }
 
-#thonker>a {
+thonker>a {
     height: inherit;
     width: inherit;
 }
 
-#thonker>a>img {
+thonker>a>img {
     height: inherit;
     width: inherit;
 }}
 
-#table-role-video {
+table-role-video {
     width: 100%;
     margin-left: 1em;
     margin-bottom: 2em;
 }
 
-#table-role-video>a>img {
+table-role-video>a>img {
     height: 100%;
     width: 100%;
 }
 
+.general-container>div>.href-image-container {
+    width: 50%;
+    height: 50%;
+}
+
+.left-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0.5em;
+}
+
+.left-side>div {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.left-top {
+
+}
+
+.left-bottom {
+
+}
+
+.right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0.5em;
+}
+
+.right-side>div {
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.right-top {
+
+}
+
+.right-bottom {
+
+}
+
+#sudo-apt-get-gf {
+      padding-top: 2.8em;
+      align-self: flex-start;
+}
+
+#tuber {
+
+}
+
+#thonker {
+
+}
+
+#thonker>a {
+
+}
+
+#thonker>a>img {
+
+}}
+
+#table-role-video {
+}
+
+#table-role-video>a>img {
+    width: 150%;
+}
+
+.middle-main-page {
+      display: flex;
+      flex-direction: column;
+      font-size: 4vw;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      min-width: 7.3em;
+}
 
 .middle {
-    margin: 1em;
+  font-size: 4vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 7.3em;
 }
 
 .small-text {
     font-size: 0.5em;
+    margin: 0 auto;
+    text-align: center;
 }
 
-#sudo-apt-get-gf {
-      width: 60%;
-      height: auto;
-      margin-right: 1em;
-      margin-top: 1em;
+.enlarge-text {
+    font-size: 1.1em;
+    overflow: hidden;
 }
 
 .image-container>a {
@@ -353,10 +555,11 @@ body > * {
     padding-bottom: 1em;
 }
 
-.enlarge-text {
-    font-size: 1.1em;
-}
+
 
 .padding-right {
     padding-right: 1em;
+}
+
+.img {
 }
