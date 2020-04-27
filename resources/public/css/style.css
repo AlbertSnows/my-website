@@ -61,6 +61,7 @@ body > * {
   height: max-content;
   border-radius: 3%;
   min-width: 1em;
+  margin-bottom: 10%;
 }
 
 #inner-box {
@@ -150,7 +151,7 @@ sidebar-entries {
 
 #sidebar-toggle-button {
     font-size: 2em;
-    color: black;
+    color: #111;
     width: inherit;
     height: inherit;
 
@@ -161,6 +162,8 @@ sidebar-entries {
 
 #sidebar-toggle-button>p {
     margin: 0;
+    color: #111;
+
 }
 
 .toggled>#toggle-wrapper {
@@ -199,10 +202,10 @@ sidebar-entries {
 }
 
 #email {
-    width: 100%;
+    width: 85%;
     height: min-content;
     cursor: pointer;
-    padding: 1em;
+    padding: 10%;
 }
 
 #email-secure {
@@ -234,9 +237,9 @@ sidebar-entries {
 }
 
 #github {
-    width: 100%;
+    width: 85%;
     height: min-content;
-    padding: 1em;
+    padding: 10%;
 }
 
 #github>a>img {
