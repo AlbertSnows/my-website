@@ -1,6 +1,153 @@
 (ns my-website.page.examples.junk-examples
   ;(:require [reagent.my-website.entrance :as r])
   )
+
+;id fukin k man
+;(timeline-body
+;  (left-side
+;    ""
+;    (image-href-container
+;      "my-website-link"
+;      classes
+;      "https://github.com/AlbertSnows/MyWebsite"
+;      (image-container
+;        "this-website-img"
+;        "placeholder"
+;        (str image-dir "this_website.PNG")
+;        "This Website")))
+;  (middle
+;    ""
+;    (image-container
+;      "end-node-raw"
+;      "raw-img"
+;      "end-node.PNG"
+;      "end of the road, cowboy"))
+;     (right-side "" [:div "right"]))
+
+;@(timeline-container "one" "two" [:div "first"] [:div "second"])
+;@(example "poop")
+
+;'(timeline-container "one" "two"
+;                     '[:div "five"]
+;                     '[:div "four"])
+;(timeline-container "end-node" ""
+;  (date "2020")
+;  '[:div]
+;  )
+; ]
+;
+;))
+
+;(timeline-body
+;  (left-side
+;    "" [:div "left"]
+;    ;(image-href-container
+;    ;  "my-website-link"
+;    ;  classes
+;    ;  "https://github.com/AlbertSnows/MyWebsite"
+;    ;  (image-container
+;    ;    "this-website-img"
+;    ;    "placeholder"
+;    ;    (str image-dir "this_website.PNG")
+;    ;    "This Website"))
+;    )
+;  (middle
+;    "" [:div "middle"]
+;    ;(image-container
+;    ;  "end-node-raw"
+;    ;  "raw-img"
+;    ;  "end-node.PNG"
+;    ;  "end of the road, cowboy")
+;    )
+;  (right-side "" [:div "right"]))
+;)
+;^{:key (gen-key)}
+;[:div "Goodbye"]
+; ]
+
+;)
+
+;(seq
+;  ^{:key (gen-key)
+;    }
+;  ;'[
+;   ;^{:key (gen-key)
+;   ;  }
+;   (div-container "test" "class" "hello")
+;
+;    ;]
+;
+;  )
+
+;(timeline-container
+;     "end-node" ""
+;     (date "2020") [:div]
+;(timeline-body
+;  (left-side
+;    "" [:div "left"]
+;    ;(image-href-container
+;    ;  "my-website-link"
+;    ;  classes
+;    ;  "https://github.com/AlbertSnows/MyWebsite"
+;    ;  (image-container
+;    ;    "this-website-img"
+;    ;    "placeholder"
+;    ;    (str image-dir "this_website.PNG")
+;    ;    "This Website"))
+;    )
+;  (middle
+;    "" [:div "middle"]
+;    ;(image-container
+;    ;  "end-node-raw"
+;    ;  "raw-img"
+;    ;  "end-node.PNG"
+;    ;  "end of the road, cowboy")
+;    )
+;  (right-side "" [:div "right"]))
+;)
+;]
+;)
+;:segment-1-key
+;[:div "entry 2"]
+
+;}
+;)
+;)
+
+;(timeline-container
+;  "segment-2" ""
+;  (date "2019")
+;  (timeline-body
+;    (left-side ""
+;      [:div "left"])
+;    (middle ""
+;      (image-container
+;        "segment-2-raw"
+;        "segment"
+;        "middle-node-ltr.PNG"
+;        "almost end of the road, cowboy"))
+;    (right-side "" [:div "right"])))
+
+;(timeline-container
+;  "segment-3" ""
+;  (date "2018")
+;  (timeline-body
+;    (left-side "" [:div "left"])
+;    (middle ""
+;      (image-container
+;        "segment-2-raw"
+;        "segment"
+;        "middle-node-rtl.PNG"
+;        "beginning of the road, cowboy"))
+;    (right-side "" [:div "right"])))
+
+
+
+
+
+
+
+
 ; about page stuff
 ;
 ;(defn new-class-container [name contents]

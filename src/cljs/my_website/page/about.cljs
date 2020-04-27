@@ -1,5 +1,6 @@
 (ns my-website.page.about
-  (:require [reagent.core :as r]))
+  ;(:require [reagent.core :as r])
+  )
 
 (def image-dir "../images/")
 (def classes "href-item-container")
@@ -10,7 +11,8 @@
    [:p {:class "date"} time]])
 
 (defn timeline-container [id class header body]
-  [:div {:id id :class (str "box timeline-container" class)} header body])
+    [:div {:id id :class (str "box timeline-container" class)}
+     header body])
 
 (defn timeline-body [left middle right]
   [:div.about-body left middle right])
@@ -35,55 +37,53 @@
    [:a {:href href :target "__blank" :rel "noopener noreferrer"}
     image-container]])
 
+(defn gen-key []
+  (gensym "key-"))
+
+(defn example [test] [:div test])
+
 (def about-page-body
-  (seq
-    {:end-node-key
-     (timeline-container
-       "end-node" ""
-       (date "2020")
-       (timeline-body
-         (left-side ""
-                    (image-href-container
-                      "my-website-link"
-                      classes
-                      "https://github.com/AlbertSnows/MyWebsite"
-                      (image-container
-                        "this-website-img"
-                        "placeholder"
-                        (str image-dir "this_website.PNG")
-                        "This Website")))
-         (middle ""
-                 (image-container
-                   "end-node-raw"
-                   "raw-img"
-                   "end-node.PNG"
-                   "end of the road, cowboy"))
-         (right-side "" [:div "right"])))
-     }))
-     ;^{:key "segment-2-key"}
-     ;(timeline-container
-     ;  "segment-2" ""
-     ;  (date "2019")
-     ;  (timeline-body
-     ;    (left-side ""
-     ;      [:div "left"])
-     ;    (middle ""
-     ;      (image-container
-     ;        "segment-2-raw"
-     ;        "segment"
-     ;        "middle-node-ltr.PNG"
-     ;        "almost end of the road, cowboy"))
-     ;    (right-side "" [:div "right"])))
-     ;^{:key "segment-3-key"}
-     ;(timeline-container
-     ;  "segment-3" ""
-     ;  (date "2018")
-     ;  (timeline-body
-     ;    (left-side "" [:div "left"])
-     ;    (middle ""
-     ;      (image-container
-     ;        "segment-2-raw"
-     ;        "segment"
-     ;        "middle-node-rtl.PNG"
-     ;        "beginning of the road, cowboy"))
-     ;    (right-side "" [:div "right"])))
+  [:div
+   (timeline-container "end-node" ""
+     (date "2020")
+     (timeline-body
+       (left-side ""
+         (image-href-container
+           "my-website-link"
+           classes
+           "https://github.com/AlbertSnows/my-website"
+           (image-container
+             "this-website-img"
+             "placeholder"
+             (str image-dir "this_website.PNG")
+             "This Website")))
+       (middle ""
+         (image-container
+           "end-node-raw"
+           "raw-img"
+           "end-node.PNG"
+           "end of the road, cowboy"))
+       (right-side "" [:div "right"])))
+   (timeline-container "segment-2" ""
+     (date "2019")
+     (timeline-body
+       (left-side ""
+         [:div "left"])
+       (middle ""
+         (image-container
+           "segment-2-raw"
+           "segment"
+           "middle-node-ltr.PNG"
+           "almost end of the road, cowboy"))
+       (right-side "" [:div "right"])))
+   (timeline-container "segment-3" ""
+     (date "2018")
+     (timeline-body
+       (left-side "" [:div "left"])
+       (middle ""
+         (image-container
+           "segment-2-raw"
+           "segment"
+           "middle-node-rtl.PNG"
+           "beginning of the road, cowboy"))
+       (right-side "" [:div "right"])))])

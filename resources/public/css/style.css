@@ -141,6 +141,8 @@ sidebar-entries {
     transition: 0.5s;
     margin-top: 4em;
     padding-right: 1em;
+    max-width: 3em;
+    min-width: 3em;
 }
 .p {
     margin: 0;
@@ -197,23 +199,48 @@ sidebar-entries {
 }
 
 #email {
-    padding: 0;
+    width: 100%;
+    height: min-content;
+    cursor: pointer;
+    padding: 1em;
+}
+
+#email-secure {
+  max-width: 7em;
+  min-width: 1em;
+}
+
+.popup {
+  visibility: hidden;
+  display: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+#email:hover .popup {
+  visibility: visible;
+  display: visible;
 }
 
 #email>a>img {
-    height: 1em;;
-    width: 1em;
-    min-width: 1em;
+
 }
 
 #github {
-    padding: 0;
+    width: 100%;
+    height: min-content;
+    padding: 1em;
 }
 
 #github>a>img {
-    height: 1em;
-    width: 1em;
-    min-width: 1em;
+
 }
 
 #sidebar:not(.toggled) #toggle-wrapper:hover{
@@ -260,7 +287,6 @@ media (min-width: 1em) {
   }
 }
 
-
 .align-vertical {
   flex-direction: column;
 }
@@ -274,6 +300,9 @@ media (min-width: 1em) {
 }
 
 .flex {
+    display: flex;
+}
+.flex>div {
     display: flex;
 }
 
@@ -293,10 +322,11 @@ media (min-width: 1em) {
 
 #contact-items {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     padding: 1em;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
 .box {
@@ -514,6 +544,12 @@ table-role-video>a>img {
     text-align: center;
 }
 
+.very-small-text {
+    font-size: 0.3em;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .enlarge-text {
     font-size: 1.1em;
     overflow: hidden;
@@ -563,3 +599,4 @@ table-role-video>a>img {
 
 .img {
 }
+

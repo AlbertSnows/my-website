@@ -7,7 +7,8 @@
 (def project-page-header
   [:p {:id "project-header"} "Projects"])
 
-(defn box-container [contents] [:div {:class "flex box align-horizontal"} (seq contents)])
+(defn box-container [contents]
+   [:div {:class "flex box align-horizontal"} contents])
 
 (defn image-container [src alt]
   [:img {:src src :alt alt}])
@@ -25,17 +26,17 @@
 (def project-page-body
   [:div {:id "project-body"}
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "my-website"
         classes
-        "https://github.com/AlbertSnows/MyWebsite"
+        "https://github.com/AlbertSnows/my-website"
         (str image-dir "this_website.PNG")
         "This Website")
       (project-description
         "This Website"
         "The website you're perusing")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "first-website"
         classes
         "https://github.com/AlbertSnows/FWRcljs"
@@ -44,9 +45,11 @@
       (project-description
         "My First website"
         "First website for class.
-         Written from Javascript -> Typescript -> Clojurescript over the semester")])
+         Written from Javascript
+         -> Typescript
+         -> Clojurescript over the semester")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "snake-game"
         classes
         "https://github.com/AlbertSnows/snake_game"
@@ -54,7 +57,7 @@
         "Snake Game")
       (project-description "Snake Game" "Wrote Snake in Rust")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "game-jam-2018"
         classes
         "https://github.com/AlbertSnows/To-Change-A-Lightbulb"
@@ -64,7 +67,7 @@
         "To Change A Light Bulb"
         "A beautiful disaster written over a weekend during a game jam")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "thermal-modeling"
         classes
         "https://github.com/AlbertSnows/HumanThermalModeling"
@@ -74,7 +77,7 @@
         "Human Thermal Modeling"
         "Multi-threading graduate student's research code")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "roguelike"
         classes
         "https://github.com/AlbertSnows/2DRogueLike"
@@ -82,7 +85,7 @@
         "2D Rogue Like")
       (project-description "2D Rogue Like" "First game made in Unity")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "edgesweeper"
         classes
         "https://github.com/AlbertSnows/python-tkinter-minesweeper"
@@ -92,7 +95,7 @@
         "Edgesweeper"
         "Took Minesweeper, written in python, and added a feature")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "first-unity"
         classes
         "https://github.com/AlbertSnows/RollABall"
@@ -100,7 +103,7 @@
         "Roll A Ball")
       (project-description "Roll A Ball" "First tutorial exposure to Unity")])
    (box-container
-     [(image-href-container
+     [:div (image-href-container
         "mobile-app-game"
         classes
         "https://github.com/AlbertSnows/SimpleMobileGame"
